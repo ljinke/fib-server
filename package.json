@@ -1,0 +1,23 @@
+{
+  "name": "fib-server",
+  "version": "1.0.0",
+  "description": "Fibnacci calculation server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fib-server"
+  },
+  "keywords": [
+    "node",
+    "fibonacci"
+  ],
+  "author": "jinke.liu@autodesk.com",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "3.5.1",
+    "express": "4.16.3"
+  }
+}
