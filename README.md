@@ -1,3 +1,17 @@
+# fibonacci server
+
+Demonstration of CPU bound problem(fibonacci calculation) in NodeJS and solutions.
+
+### Methods
+
+- Regular fibonacci calculation
+- Calback with `process.nextTick`
+- Try Promise or Async
+- Napajs based solution
+- Recursive napajs
+
+### Tests
+
 ```
 curl http://loalhost:3030/callback/30
 ```
