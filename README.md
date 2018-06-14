@@ -13,9 +13,15 @@ Demonstration of CPU bound problem(fibonacci calculation) in NodeJS and solution
 ### Tests
 
 ```
-curl http://loalhost:3030/callback/30
+$ npm start
 ```
 
 ```
-ab -n 10 -a 10 http://loalhost:3030/callback/30
+$ curl http://loalhost:3030/fib/30
+$ curl http://loalhost:3030/callback/30
+```
+
+```
+$ ab -n 10 -a 10 http://loalhost:3030/fib/30
+$ ab -n 10 -a 10 http://loalhost:3030/callback/30
 ```
