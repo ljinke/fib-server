@@ -5,7 +5,7 @@ Demonstration of CPU bound problem(fibonacci calculation) in NodeJS and solution
 ### Methods
 
 - Regular fibonacci calculation
-- Calback with `process.nextTick`
+- Calback with `setImmediate`
 - Try Promise or Async
 - Napajs based solution
 - Recursive napajs
