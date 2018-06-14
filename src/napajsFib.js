@@ -1,4 +1,5 @@
 const napa = require("napajs");
+//const fib = require("./fib");
 
 function fib(n) {
   if (n <= 2) {
@@ -19,7 +20,7 @@ zone.broadcast(fib.toString());
 
 const napaFib = n => {
   return zone
-    .execute("", "fib", [n])
+    .execute(fib, [n])
     .then(result => result.value)
     .catch(err => console.error(err));
 };
