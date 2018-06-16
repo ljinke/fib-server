@@ -1,10 +1,19 @@
 const fib = n => {
-  return Promise.resolve().then(() => {
-    if (n <= 2) {
-      return 1;
-    } else {
-      return Promise.all([fib(n - 1), fib(n - 2)]).then(([a, b]) => a + b);
-    }
+  if (n <= 2) {
+    return 1;
+  } else {
+    return Promise.all([
+      delayed().then(() => fib(n - 1)),
+      delayed().then(() => fib(n - 2))
+    ]).then(([a, b]) => a + b);
+  }
+};
+
+const delayed = () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, 0);
   });
 };
 
