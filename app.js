@@ -6,6 +6,8 @@ const callbackFib = require("./src/callbackFib");
 const promiseFib = require("./src/promiseFib");
 const asyncFib = require("./src/asyncFib");
 
+const PORT = process.env.PORT || 5000;
+
 app.use(responseTime());
 
 app.get("/fib/:n", (req, res) => {
@@ -57,4 +59,4 @@ process.on("unhandledRejection", error => {
   process.exit(1);
 });
 
-app.listen(5000);
+app.listen(PORT);
