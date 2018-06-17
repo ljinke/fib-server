@@ -59,4 +59,8 @@ process.on("unhandledRejection", error => {
   process.exit(1);
 });
 
+console.log(`Starting server at port: ${PORT}`);
+
 app.listen(PORT);
+
+console.log(`Server started at port: ${PORT}`);
