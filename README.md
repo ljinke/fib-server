@@ -17,11 +17,11 @@ $ npm start
 ```
 
 ```
-$ curl http://loalhost:3030/fib/30
-$ curl http://loalhost:3030/callback/30
+$ curl http://localhost:3030/fib/30
+$ curl http://localhost:3030/callback/30
 ```
 
 ```
-$ ab -n 10 -a 10 http://loalhost:3030/fib/30
-$ ab -n 10 -a 10 http://loalhost:3030/callback/30
+$ ab -n 10 -c 10 http://localhost:3030/fib/30
+$ ab -n 10 -c 10 http://localhost:3030/callback/30
 ```

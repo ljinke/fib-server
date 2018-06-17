@@ -11,9 +11,9 @@ const fib = n => {
 
 const delayed = () => {
   return new Promise(resolve => {
-    setTimeout(() => {
+    setImmediate(() => {
       resolve();
-    }, 0);
+    });
   });
 };
 
