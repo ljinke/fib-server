@@ -1,5 +1,6 @@
 const app = require("express")();
 const responseTime = require("response-time");
+const throttle = require("express-throttle");
 
 const fib = require("./src/fib");
 const callbackFib = require("./src/callbackFib");
@@ -10,7 +11,9 @@ const PORT = process.env.PORT || 5000;
 
 app.use(responseTime());
 
-app.get("/fib/:n", (req, res) => {
+const requestThrottle = throttle({ rate: "5/s" });
+
+app.get("/fib/:n", requestThrottle, (req, res) => {
   console.log(`started fib${req.params.n}: ${new Date().toISOString()}`);
 
   const result = fib(req.params.n);
@@ -19,7 +22,7 @@ app.get("/fib/:n", (req, res) => {
   res.json({ result });
 });
 
-app.get("/callback/:n", (req, res) => {
+app.get("/callback/:n", requestThrottle, (req, res) => {
   console.log(`started callback${req.params.n}: ${new Date().toISOString()}`);
 
   callbackFib(req.params.n, result => {
@@ -31,7 +34,7 @@ app.get("/callback/:n", (req, res) => {
   });
 });
 
-app.get("/promise/:n", async (req, res) => {
+app.get("/promise/:n", requestThrottle, async (req, res) => {
   console.log(`started promise${req.params.n}: ${new Date().toISOString()}`);
 
   const result = await promiseFib(req.params.n);
@@ -41,7 +44,7 @@ app.get("/promise/:n", async (req, res) => {
   res.json({ result });
 });
 
-app.get("/async/:n", async (req, res) => {
+app.get("/async/:n", requestThrottle, async (req, res) => {
   console.log(`started async${req.params.n}: ${new Date().toISOString()}`);
 
   const result = await asyncFib(req.params.n);
