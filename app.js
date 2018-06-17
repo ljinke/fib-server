@@ -5,8 +5,6 @@ const fib = require("./src/fib");
 const callbackFib = require("./src/callbackFib");
 const promiseFib = require("./src/promiseFib");
 const asyncFib = require("./src/asyncFib");
-const napaFib = require("./src/napajsFib");
-const rnapaFib = require("./src/recursiveNapsFib");
 
 app.use(responseTime());
 
@@ -46,30 +44,6 @@ app.get("/async/:n", async (req, res) => {
 
   const result = await asyncFib(req.params.n);
   console.log(`complete async${req.params.n}: ${new Date().toISOString()}`);
-
-  res.json({ result });
-});
-
-app.get("/napa/:n", async (req, res) => {
-  console.log(`started napa${req.params.n}: ${new Date().toISOString()}`);
-
-  const result = await napaFib(req.params.n);
-
-  console.log(`complete napa${req.params.n}: ${new Date().toISOString()}`);
-
-  res.json({ result });
-});
-
-app.get("/rnapa/:n", async (req, res) => {
-  console.log(
-    `started recursive napa${req.params.n}: ${new Date().toISOString()}`
-  );
-
-  const result = await rnapaFib(req.params.n);
-
-  console.log(
-    `complete recursive napa${req.params.n}: ${new Date().toISOString()}`
-  );
 
   res.json({ result });
 });
