@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(responseTime());
 
-const requestThrottle = throttle({ rate: "5/s" });
+const requestThrottle = throttle({ burst: 10, rate: "5/s" });
 
 app.get("/fib/:n", requestThrottle, (req, res) => {
   console.log(`started fib${req.params.n}: ${new Date().toISOString()}`);
