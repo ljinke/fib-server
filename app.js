@@ -1,3 +1,4 @@
+require("newrelic");
 const app = require("express")();
 const responseTime = require("response-time");
 const throttle = require("express-throttle");
